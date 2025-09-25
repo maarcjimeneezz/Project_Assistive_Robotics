@@ -45,7 +45,7 @@ set_tcp = "set_tcp(p[0.000000, 0.000000, 0.050000, 0.000000, 0.000000, 0.000000]
 #movel_app_give5 = f"movel([-2.280779, -1.556743, -2.129529, 5.257071, -1.570796, 2.280779],{accel_mss},{speed_ms},{timel},0.000)"
 #movel_give5 = f"movel([-2.195869, -1.642206, -2.040971, 5.253965, -1.570796, 2.195869],{accel_mss},{speed_ms},{timel/2},0.000)"
 
-j1, j2, j3, j4, j5, j6 = list(np.radians(Init_target.Joints()))
+j1, j2, j3, j4, j5, j6 = np.radians(Init_target.Joints()).tolist()[0]
 movej_init = f"movej([{j1},{j2}, {j3}, {j4}, {j5}, {j6}],{accel_mss},{speed_ms},{timel},{blend_r})"
 X, Y, Z, Roll, Pitch, Yaw = Pose_2_TxyzRxyz(App_shake_target.Pose())
 movel_app_shake = f"movel(p[{X}, {Y}, {Z}, {Roll}, {Pitch}, {Yaw}], a={accel_mss}, v={speed_ms}, t={timel}, r={blend_r})"
