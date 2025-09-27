@@ -22,10 +22,9 @@ robot = RDK.Item("UR5e")
 base = RDK.Item("UR5e Base")
 tool = RDK.Item("Hand")
 Init_target = RDK.Item("Init")
-App_shake_target = RDK.Item("App_shake")
-Shake_target = RDK.Item("Shake")
-App_give5_target = RDK.Item("App_give5")
-Give5_target = RDK.Item("Give5")
+Hello_start_target = RDK.Item("Hello start")
+Hello_left_target = RDK.Item("Hello left")
+Hello_right_target = RDK.Item("Hello right")
 
 # Set robot frame, tool and speed
 robot.setPoseFrame(base)
@@ -43,21 +42,22 @@ def move_to_init():
 # ----
 # Modificar les funcions per a que facin el que volem
 # Perform house sequence
-def hand_shake():
-    print("Drawing House")
-    robot.MoveL(App_shake_target, True)
-    robot.MoveL(Shake_target, True)
-    robot.MoveL(App_shake_target, True)
-    print("Hand Shake FINISHED")
+def hello():
+    print("Hello!")
+    robot.MoveL(Hello_start_target, True)
+    for i in range(2):
+        robot.MoveL(Hello_left_target, True)
+        robot.MoveL(Hello_right_target, True)
+    print("Hello FINISHED")
 
 # ----
 # Mencionar les diferents funcions que volem que faci el robot
 # Main sequence
 def main():
     move_to_init()
-    hand_shake()
+    hello()
     move_to_init()
-
+    print("Program completed.")
 
 # Confirmation dialog to close RoboDK
 def confirm_close():
