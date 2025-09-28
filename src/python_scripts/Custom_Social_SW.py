@@ -25,6 +25,9 @@ Init_target = RDK.Item("Init")
 Hello_start_target = RDK.Item("Hello start")
 Hello_left_target = RDK.Item("Hello left")
 Hello_right_target = RDK.Item("Hello right")
+Bye_start_target = RDK.Item("Bye start")
+Bye_left_target = RDK.Item("Bye left")
+Bye_right_target = RDK.Item("Bye right")
 
 # Set robot frame, tool and speed
 robot.setPoseFrame(base)
@@ -50,6 +53,14 @@ def hello():
         robot.MoveL(Hello_right_target, True)
     print("Hello FINISHED")
 
+def bye():
+    print("Bye!")
+    robot.MoveL(Bye_start_target, True)
+    for i in range(2):
+        robot.MoveL(Bye_left_target, True)
+        robot.MoveL(Bye_right_target, True)
+    print("Bye FINISHED")
+
 # ----
 # Mencionar les diferents funcions que volem que faci el robot
 # Main sequence
@@ -58,6 +69,10 @@ def main():
     hello()
     move_to_init()
     print("Program completed.")
+    bye()
+    move_to_init()
+    print("Program completed.")
+    
 
 # Confirmation dialog to close RoboDK
 def confirm_close():
