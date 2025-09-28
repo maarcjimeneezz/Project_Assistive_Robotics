@@ -28,6 +28,8 @@ Hello_right_target = RDK.Item("Hello right")
 Bye_start_target = RDK.Item("Bye start")
 Bye_left_target = RDK.Item("Bye left")
 Bye_right_target = RDK.Item("Bye right")
+Come_start_target  = RDK.Item("Come start")
+Come_up_target = RDK.Item("Come up")
 
 # Set robot frame, tool and speed
 robot.setPoseFrame(base)
@@ -53,22 +55,35 @@ def hello():
         robot.MoveL(Hello_right_target, True)
     print("Hello FINISHED")
 
+# Pujada de la velocitat en aquestes funcions (bye() i come_here()) per agilitzar la seqüència
 def bye():
     print("Bye!")
+    robot.setSpeed(300)
     robot.MoveL(Bye_start_target, True)
     for i in range(2):
         robot.MoveL(Bye_left_target, True)
         robot.MoveL(Bye_right_target, True)
+    robot.setSpeed(20)
     print("Bye FINISHED")
 
+def come_here():
+    print("Come here!")
+    robot.setSpeed(300)
+    for i in range(2):
+        robot.MoveL(Come_start_target, True)
+        robot.MoveL(Come_up_target, True)
+        robot.MoveL(Come_start_target, True)
+    robot.setSpeed(20)
+    print("Come here FINISHED")
+    
 # ----
 # Mencionar les diferents funcions que volem que faci el robot
 # Main sequence
 def main():
     move_to_init()
     hello()
+    come_here()
     move_to_init()
-    print("Program completed.")
     bye()
     move_to_init()
     print("Program completed.")
