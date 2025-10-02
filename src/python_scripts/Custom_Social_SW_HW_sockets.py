@@ -48,7 +48,7 @@ accel_mss = 1.2
 speed_ms = 0.75
 blend_r = 0.0
 timej = 6
-timel = 4
+timel = 6
 
 # URScript TCP
 set_tcp = "set_tcp(p[0.000000, 0.000000, 0.050000, 0.000000, 0.000000, 0.000000])"
@@ -92,7 +92,7 @@ def move_to_init():
         send_ur_script(set_tcp)
         time.sleep(1)
         send_ur_script(joints_to_movej(Init_target))
-        time.sleep(1)
+        time.sleep(timel)
 
 def hello():
     print("Hello!")
@@ -105,9 +105,12 @@ def hello():
         send_ur_script(set_tcp)
         time.sleep(1)
         send_ur_script(pose_to_movel(Hello_start_target))
+        time.sleep(timel)
         for i in range(2):
             send_ur_script(pose_to_movel(Hello_left_target))
+            time.sleep(timel)
             send_ur_script(pose_to_movel(Hello_right_target))
+            time.sleep(timel)
         time.sleep(1)
 
 def bye():
@@ -123,9 +126,12 @@ def bye():
         send_ur_script(set_tcp)
         time.sleep(1)
         send_ur_script(pose_to_movel(Bye_start_target))
+        time.sleep(timel)
         for i in range(2):
             send_ur_script(pose_to_movel(Bye_left_target))
+            time.sleep(timel)
             send_ur_script(pose_to_movel(Bye_right_target))
+            time.sleep(timel)
         time.sleep(1)
 
 def come_here():
@@ -141,8 +147,11 @@ def come_here():
         send_ur_script(set_tcp)
         for i in range(2):
             send_ur_script(pose_to_movel(Come_start_target))
+            time.sleep(timel)
             send_ur_script(pose_to_movel(Come_up_target))
+            time.sleep(timel)
             send_ur_script(pose_to_movel(Come_start_target))
+            time.sleep(timel)
         time.sleep(1)
 
 
