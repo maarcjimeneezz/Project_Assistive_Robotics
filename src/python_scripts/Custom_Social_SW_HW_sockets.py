@@ -10,7 +10,7 @@ from robodk.robomath import *
 
 # ----------------------------
 # Load RoboDK project
-relative_path = "src/roboDK/Assistive_UR5e.rdk"
+relative_path = "src/roboDK/Custom_Social_Task.rdk"
 absolute_path = os.path.abspath(relative_path)
 RDK = Robolink()
 RDK.AddFile(absolute_path)
