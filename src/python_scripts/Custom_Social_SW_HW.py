@@ -120,7 +120,7 @@ def main():
     move_to_init()
     bye()
     move_to_init()
-    print("🎯 Program completed.")
+    print("Program completed.")
 
 
 # ----------------------------
