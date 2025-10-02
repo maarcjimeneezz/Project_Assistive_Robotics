@@ -104,12 +104,12 @@ def hello():
     if robot_is_connected:
         send_ur_script(set_tcp)
         time.sleep(1)
-        send_ur_script(pose_to_movel(Hello_start_target))
+        send_ur_script(joints_to_movej(Hello_start_target))
         time.sleep(timel)
         for i in range(2):
-            send_ur_script(pose_to_movel(Hello_left_target))
+            send_ur_script(joints_to_movej(Hello_left_target))
             time.sleep(timel)
-            send_ur_script(pose_to_movel(Hello_right_target))
+            send_ur_script(joints_to_movej(Hello_right_target))
             time.sleep(timel)
         time.sleep(1)
 
@@ -125,12 +125,12 @@ def bye():
     if robot_is_connected:
         send_ur_script(set_tcp)
         time.sleep(1)
-        send_ur_script(pose_to_movel(Bye_start_target))
+        send_ur_script(joints_to_movej(Bye_start_target))
         time.sleep(timel)
         for i in range(2):
-            send_ur_script(pose_to_movel(Bye_left_target))
+            send_ur_script(joints_to_movej(Bye_left_target))
             time.sleep(timel)
-            send_ur_script(pose_to_movel(Bye_right_target))
+            send_ur_script(joints_to_movej(Bye_right_target))
             time.sleep(timel)
         time.sleep(1)
 
@@ -146,11 +146,11 @@ def come_here():
     if robot_is_connected:
         send_ur_script(set_tcp)
         for i in range(2):
-            send_ur_script(pose_to_movel(Come_start_target))
+            send_ur_script(joints_to_movej(Come_start_target))
             time.sleep(timel)
-            send_ur_script(pose_to_movel(Come_up_target))
+            send_ur_script(joints_to_movej(Come_up_target))
             time.sleep(timel)
-            send_ur_script(pose_to_movel(Come_start_target))
+            send_ur_script(joints_to_movej(Come_start_target))
             time.sleep(timel)
         time.sleep(1)
 
