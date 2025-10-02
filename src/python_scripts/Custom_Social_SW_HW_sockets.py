@@ -182,3 +182,7 @@ def confirm_close():
     else:
         RDK.CloseRoboDK()
         print("RoboDK closed without saving.")
+        
+if __name__ == "__main__":
+    main()
+    #confirm_close()
