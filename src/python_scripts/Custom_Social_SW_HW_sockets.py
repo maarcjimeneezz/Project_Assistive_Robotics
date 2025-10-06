@@ -47,8 +47,8 @@ ROBOT_PORT = 30002
 accel_mss = 1.2
 speed_ms = 0.75
 blend_r = 0.0
-timej = 6
-timel = 6
+timej = 3
+timel = 3
 
 # URScript TCP
 set_tcp = "set_tcp(p[0.000000, 0.000000, 0.050000, 0.000000, 0.000000, 0.000000])"
